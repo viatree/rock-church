@@ -11,6 +11,7 @@
   --secondary: #C69E46;
   --text: #18060A;
   --text25: rgba(0, 13, 19, 0.25);
+  
 }
 
 @theme inline {
@@ -36,7 +37,33 @@ body {
   
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Montserrat', sans-serif;
-  
+  font-family: 'Montserrat', sans-serif; 
+}
+/* Stacking Cards Scroll Effect */
+.stacking-wrapper {
+  position: relative;
+  background: #C69E46;
 }
 
+.stacking-cards {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.stack-card {
+  position: sticky;
+  top: 100px;
+  transform: scale(0.95);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  opacity: 0.5;
+  z-index: 1;
+  margin-bottom: 60px;
+  border-radius: 20px;
+}
+
+.stack-card.in-view {
+  transform: scale(1);
+  opacity: 1;
+  z-index: 10;
+}
