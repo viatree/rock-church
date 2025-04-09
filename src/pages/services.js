@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 
-const services = [
+const Rimservices = [
   {
     category: "SOUL KIDS",
     title: "SOUL Kids",
@@ -130,4 +130,4 @@ const service = () => {
   );
 };
 
-export default service;
+export default Rimservices;
