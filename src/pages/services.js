@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import Hero from "@/components/Hero";
 
-const Rimservices = [
+const services = [
   {
     category: "SOUL KIDS",
     title: "SOUL Kids",
@@ -50,7 +50,7 @@ const categories = [
   "SOUL NURSERY",
 ];
 
-const service = () => {
+const Services = () => {
   const [filter, setFilter] = useState("ALL");
 
   const filteredServices =
@@ -107,6 +107,7 @@ const service = () => {
       <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
         {service.description}
       </p>
+     
     </div>
 
     {/* Image section */}
@@ -130,4 +131,4 @@ const service = () => {
   );
 };
 
-export default Rimservices;
+export default Services;
