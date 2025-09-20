@@ -112,7 +112,7 @@ const Services = () => {
         </div>
       </section>
 
-      <section className="stacking-wrapper bg-[var(--color-text25)]  text-center">
+      <section className=" py-16 px-6 md:px-24 stacking-wrapper bg-[var(--color-text25)] text-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-6">Church Life</h2>
         <p className="max-w-3xl mx-auto text-lg md:text-xl mb-12">
           There’s so much more to church than Sunday services...
@@ -133,29 +133,26 @@ const Services = () => {
         </div>
         <div className="stacking-cards">
           {filteredServices.map((service, index) => (
-            <div className="stack-card bg-white rounded-[20px] shadow-xl overflow-hidden" key={index}>
-              <div className="flex flex-col md:flex-row">
-                {/* Text section */}
-                <div className="w-full md:w-1/2 px-8 py-10 flex flex-col justify-center">
-                  <h3 className="text-3xl md:text-4xl font-bold text-black mb-4">{service.title}</h3>
-                  <p className="text-base md:text-lg text-gray-700 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                </div>
-
-                {/* Image section */}
-                <div className="w-full md:w-1/2 p-6">
-                  <div className="relative h-64 md:h-80 rounded-2xl overflow-hidden">
-                    <Image
-                      src={service.image}
-                      alt={service.title}
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
+           <div className="stack-card bg-white rounded-[30px] shadow-2xl overflow-hidden w-full max-w-[1200px] min-h-[400px] mx-auto my-8">
+           <div className="flex flex-col md:flex-row">
+             <div className="w-full md:w-1/2 px-10 py-12 flex flex-col justify-center text-left">
+               <h3 className="text-4xl font-bold text-black mb-6">{service.title}</h3>
+               <p className="text-lg text-gray-700 leading-relaxed">
+                 {service.description}
+               </p>
+             </div>
+             <div className="w-full md:w-1/2 p-6">
+               <div className="relative h-96 md:h-[450px] rounded-2xl overflow-hidden">
+                 <Image
+                   src={service.image}
+                   alt={service.title}
+                   fill
+                   className="object-cover"
+                 />
+               </div>
+             </div>
+           </div>
+         </div>         
           ))}
         </div>
       </section>
