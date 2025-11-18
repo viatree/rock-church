@@ -74,88 +74,70 @@ const Services = () => {
 
   return (
     <>
-      {/* <section className="relative bg-[url('/images/hands2.png')] bg-cover flex items-end py-6 justify-center h-[300px] overflow-hidden">
+      <section className="relative bg-[url('/images/hands2.png')] bg-cover flex items-end py-6 justify-center h-[300px] overflow-hidden">
         <div className="absolute inset-0 bg-opacity-30 z-0 " />
-      </section> */}
-
-      <section className="relative bg-[var(--color-secondary)] ">
-        {/* Maroon background box behind text */}
-        <div className="absolute top-0 left-40 h-200 w-[700px] bg-[#5e1f2e] md:px-16 lg:px-24 xl:px-43" />
-        {/* Background image */}
-        <div className="w-350 h-[650px] overflow-hidden">
-          <Image
-            src="/images/services.png"
-            alt="Prayer"
-            fill
-            className=" mt-40 ml-15 md:px-16 lg:px-24 xl:px-43 "
-          />
-        </div>
-        {/* Text over image */}
-        <div className="absolute top-0 left-25 w-full h-full z-20 flex items-start justify-start px-6 md:px-16 lg:px-24 pt-10 md:pt-20">
-          <h1
-            className="text-4xl md:text-6xl font-extrabold uppercase  max-w-lg stroke-2 stroke-[#C69E46]  "
-            style={{
-              color: "#852139", // Isi huruf
-              WebkitTextStroke: "4px #C69E46",
-              WebkitTextStrokeColor: "#C69E46",
-              WebkitTextStrokeWidth: "1px",
-
-            }}
-          >
-            <span className="block ">Rock</span>
-            <span className="block">International</span>
-            <span className="block">Ministry</span>
-            <span className="block">Malaysia</span>
-            <span className="block">Services</span>
-          </h1>
-
-        </div>
       </section>
+    <section className="bg-[#fff7f2] py-16 px-6 md:px-16 lg:px-24">
+  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14">
+    {/* Kiri: heading + subheading */}
+    <div className="lg:w-1/3 relative">
+      {/* background daun opsional */}
+      <div className="pointer-events-none absolute -top-10 -left-10 -z-10 opacity-40">
+        {/* kalau punya ilustrasi daun sendiri, taruh di sini */}
+        {/* <Image src="/images/leaf-bg.png" alt="" width={260} height={260} /> */}
+      </div>
 
-      <section className=" py-16 px-6 md:px-24 stacking-wrapper bg-[var(--color-text25)] text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-6">Church Life</h2>
-        <p className="max-w-3xl mx-auto text-lg md:text-xl mb-12">
-          There’s so much more to church than Sunday services...
-        </p>
-        <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto px-4">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`px-5 py-2 rounded-full font-semibold border transition ${filter === cat
-                ? "bg-black text-white"
-                : "bg-white text-black hover:bg-black hover:text-white"
-                }`}
-            >
-              {cat}
-            </button>
-          ))}
+      <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#b0846a] mb-3">
+        Connect With Community
+      </p>
+      <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#3a1212] leading-tight mb-4">
+        Empowering Worship
+        <br />
+        Experiences
+      </h2>
+      <p className="text-sm md:text-base text-gray-700">
+        Extend Love Beyond the Sanctuary
+      </p>
+    </div>
+
+    {/* Kanan: grid card seperti contoh (2 baris x 3 kolom) */}
+    <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      {filteredServices.map((service, index) => (
+        <div
+          key={service.id || index}
+          className="bg-[#f3ebe4] rounded-[24px] px-8 py-10 flex flex-col justify-center text-left shadow-sm hover:shadow-md hover:-translate-y-1 transition"
+        >
+          {/* Kalau punya icon di data, pakai ini */}
+          {service.icon && (
+            <div className="mb-6">
+              <Image
+                src={service.icon}
+                alt={service.title}
+                width={56}
+                height={56}
+                className="object-contain"
+              />
+            </div>
+          )}
+
+          {/* Kalau belum punya icon, bisa pakai placeholder lingkaran */}
+          {!service.icon && (
+            <div className="mb-6 w-12 h-12 rounded-full border border-[#3a1212]/30 flex items-center justify-center text-[#3a1212] text-xl">
+              ✨
+            </div>
+          )}
+
+          <h3 className="text-lg md:text-xl font-semibold text-[#3a1212] mb-2">
+            {service.title}
+          </h3>
+          <p className="text-sm text-gray-700">
+            {service.description}
+          </p>
         </div>
-        <div className="stacking-cards">
-          {filteredServices.map((service, index) => (
-           <div className="stack-card bg-white rounded-[30px] shadow-2xl overflow-hidden w-full max-w-[1200px] min-h-[400px] mx-auto my-8">
-           <div className="flex flex-col md:flex-row">
-             <div className="w-full md:w-1/2 px-10 py-12 flex flex-col justify-center text-left">
-               <h3 className="text-4xl font-bold text-black mb-6">{service.title}</h3>
-               <p className="text-lg text-gray-700 leading-relaxed">
-                 {service.description}
-               </p>
-             </div>
-             <div className="w-full md:w-1/2 p-6">
-               <div className="relative h-96 md:h-[450px] rounded-2xl overflow-hidden">
-                 <Image
-                   src={service.image}
-                   alt={service.title}
-                   fill
-                   className="object-cover"
-                 />
-               </div>
-             </div>
-           </div>
-         </div>         
-          ))}
-        </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
     </>
   );
 };

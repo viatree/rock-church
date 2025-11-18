@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const cards = [
   {
@@ -16,75 +16,87 @@ const cards = [
     title: "Kingdom Generation Community",
     desc: "CONNECT. GROW. SERVE.\nJOIN OUR GLOBAL MOVEMENT",
   },
+  {
+    img: "/images/comm3.png", // ganti dengan gambar ke-4 milikmu
+    title: "Kingdom Generation Community",
+    desc: "BUILDING STRONG COMMUNITIES\nTHROUGH FAITH & FELLOWSHIP",
+  },
 ];
 
 export default function CommunitySection() {
   const scrollRef = useRef(null);
+  const [scrollY, setScrollY] = useState(0);
 
-  const scroll = (dir) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        top: dir === "up" ? -270 : 270,
-        behavior: "smooth",
-      });
-    }
+  // pantau scroll window untuk efek parallax
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY || 0);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // offset parallax: card 1 & 3 (index 0 & 2) naik, 2 & 4 (1 & 3) turun
+  const getCardOffset = (index) => {
+    const base = Math.min(scrollY * 0.08, 40); // batas max 40px
+    return index % 2 === 0 ? -base : base;
   };
 
   return (
-    <section className="bg-[#c3963e] md:px-16 lg:px-24 xl:px-43 py-10 flex flex-col md:flex-row items-start gap-10">
-      {/* Teks kiri */}
-      <div className="md:w-1/3 text-white font-extrabold text-4xl md:text-5xl leading-tight drop-shadow-[3px_3px_0_rgba(0,0,0,0.3)] uppercase">
-        LET’S ME<br />
-        TAKE<br />
-        YOU TO<br />
-        COMMUNITY
-      </div>
+    <section className="bg-white py-16 px-6 md:px-16 lg:px-24 xl:px-32">
+      <div className="max-w-6xl mx-auto">
+        {/* Header atas seperti contoh */}
+        <div className="flex flex-col md:flex-row justify-between gap-8 mb-12">
+          {/* kiri: label + title */}
+          <div className="md:w-1/2">
+            <p className="text-xs md:text-sm uppercase tracking-[0.25em] text-[#b0846a]">
+              Connecting in Spirit
+            </p>
+            <h2 className="mt-2 text-3xl md:text-5xl font-semibold text-[#3a1212]">
+              Divine Communion
+            </h2>
+          </div>
 
-      {/* Kanan: Card viewer */}
-      <div className="md:w-2/3 flex flex-col items-center relative">
-        {/* Tombol atas */}
-        <button
-          onClick={() => scroll("up")}
-          className="absolute top-[20px] z-10 bg-[#7b1b30] text-white p-3 rounded-full shadow-md hover:scale-105 transition"
-        >
-          ↑
-        </button>
+          {/* kanan: deskripsi + tombol */}
+          <div className="md:w-1/2 flex flex-col items-start md:items-end gap-4">
+            <p className="text-gray-600 text-sm md:text-base max-w-md text-left md:text-right">
+              Our Mass services provide a space for spiritual renewal, communal
+              connection, and the celebration of the divine presence.
+            </p>
+            <button className="px-6 py-3 bg-[#3a1212] text-white text-sm font-semibold tracking-wide rounded-none md:rounded-sm hover:bg-[#5a2828] transition">
+              View All
+            </button>
+          </div>
+        </div>
 
-        {/* Scrollable container */}
+        {/* Grid card 4 kolom */}
         <div
           ref={scrollRef}
-          className="relative h-[360px] w-[90vw] md:w-[550px] overflow-y-scroll my-10 scroll-smooth snap-y snap-mandatory"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
         >
           {cards.map((card, i) => (
             <div
               key={i}
-              className="bg-[#7b1b30] text-white w-full h-[250px] rounded-md overflow-hidden shadow-lg mb-5 relative snap-start"
+              className="flex flex-col items-center text-center"
+              style={{
+                transform: `translateY(${getCardOffset(i)}px)`,
+                transition: "transform 0.3s ease-out",
+              }}
             >
-              <img
-                src={card.img}
-                alt="KGC"
-                className="absolute inset-0 w-full h-full object-cover opacity-30"
-              />
-              <div className="relative p-6 z-10">
-                <h3 className="text-2xl font-bold uppercase">{card.title}</h3>
-                <p className="text-sm mt-2 whitespace-pre-line">
-                  {card.desc}
-                </p>
-                <a href="#" className="mt-4 inline-block text-[#c3963e] font-bold">
-                  LEARN MORE
-                </a>
+              <div className="w-full overflow-hidden rounded-md shadow-md">
+                <img
+                  src={card.img}
+                  alt={card.title}
+                  className="w-full h-72 object-cover"
+                />
               </div>
+              <h3 className="mt-6 text-lg md:text-xl font-semibold text-[#3a1212]">
+                {card.title}
+              </h3>
+              <p className="mt-2 text-sm text-gray-500 whitespace-pre-line">
+                {card.desc}
+              </p>
             </div>
           ))}
         </div>
-
-        {/* Tombol bawah */}
-        <button
-          onClick={() => scroll("down")}
-          className="absolute bottom-[20px] z-10 bg-[#7b1b30] text-white p-3 rounded-full shadow-md hover:scale-105 transition"
-        >
-          ↓
-        </button>
       </div>
     </section>
   );
