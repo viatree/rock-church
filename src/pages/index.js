@@ -2,7 +2,7 @@
 import { NextSeo } from "next-seo";
 import Hero from "@/components/Hero";
 import VideoSection from "@/components/Videosection";
-import CommunitySection from "@/components/Community";
+
 
 export default function Home() {
   return (
@@ -80,7 +80,161 @@ export default function Home() {
 </section>
 
       <VideoSection />
-      <CommunitySection />
+  
+      <section className="bg-[#f8f4f1] py-20 px-6 md:px-16 lg:px-24">
+  <div className="max-w-7xl mx-auto text-center">
+    {/* Heading */}
+    <h2 className="text-4xl md:text-6xl font-semibold text-[#2d1b1b] leading-tight">
+      Join Our Sunday <br />
+      Service
+    </h2>
+
+    <p className="mt-6 text-gray-500 max-w-3xl mx-auto text-sm md:text-base leading-relaxed">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat,
+      lectus nec pretium aliquam, velit dolor consectetur erat, at tincidunt
+      augue tellus ut justo. Integer at lectus id augue feugiat convallis.
+    </p>
+
+    {/* Cards */}
+    <div className="mt-14 grid md:grid-cols-3 gap-8">
+      {/* Card 1 */}
+      <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
+        <img
+          src="/images/service-1.jpg"
+          alt="Worship"
+          className="w-full h-80 object-cover"
+        />
+        <div className="p-8">
+          <h3 className="text-3xl font-semibold text-[#2d1b1b] mb-4">
+            Inspiring Worship Musik
+          </h3>
+          <p className="text-gray-500 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque habitant morbi tristique senectus.
+          </p>
+        </div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
+        <img
+          src="/images/service-2.jpg"
+          alt="Bible"
+          className="w-full h-80 object-cover"
+        />
+        <div className="p-8">
+          <h3 className="text-3xl font-semibold text-[#2d1b1b] mb-4">
+            Biblical Teaching
+          </h3>
+          <p className="text-gray-500 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque habitant morbi tristique senectus.
+          </p>
+        </div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
+        <img
+          src="/images/service-3.jpg"
+          alt="Community"
+          className="w-full h-80 object-cover"
+        />
+        <div className="p-8">
+          <h3 className="text-3xl font-semibold text-[#2d1b1b] mb-4">
+            Warm Community
+          </h3>
+          <p className="text-gray-500 leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Pellentesque habitant morbi tristique senectus.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+  <section className="bg-white py-16 px-6 md:px-16 lg:px-24">
+  <div className="max-w-8xl mx-auto">
+    <div className="grid gap-y-12 lg:grid-cols-3 items-center">
+      {/* KIRI – 2 gambar (hanya muncul di layar lg ke atas) */}
+      <div className="hidden lg:flex flex-col gap-6 items-center">
+        <img
+          src="/images/join-1.jpg" // ganti sesuai gambarmu
+          alt="Foto 1"
+          className="w-64 h-40 object-cover rounded-3xl shadow-md"
+        />
+        <img
+          src="/images/join-2.jpg"
+          alt="Foto 2"
+          className="w-72 h-44 object-cover rounded-3xl shadow-md"
+        />
+      </div>
+
+      {/* TENGAH – teks & tombol */}
+      <div className="col-span-1 text-center max-w-xl mx-auto">
+        {/* label kecil */}
+        <div className="flex items-center justify-center gap-3 text-xs tracking-[0.25em] uppercase text-[#b0846a] mb-4">
+          <span className="w-7 h-7 rounded-full border border-[#b0846a] flex items-center justify-center text-[10px]">
+            ⤾
+          </span>
+          <span>Why Join Us</span>
+        </div>
+
+        <h2 className="text-3xl md:text-5xl font-semibold text-[#3a1212] leading-tight mb-4">
+          Discover Your Place <br className="hidden md:block" />
+          With Us
+        </h2>
+
+        <p className="text-gray-600 text-sm md:text-base mb-8">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod,
+          lorem vel blandit sollicitudin,
+        </p>
+
+        <button className="inline-flex items-center justify-center px-10 py-3 rounded-full bg-[#3a1212] text-white text-sm font-semibold shadow-md hover:bg-[#5a2828] transition">
+          Join Volunteer
+        </button>
+      </div>
+
+      {/* KANAN – 2 gambar (hanya muncul di layar lg ke atas) */}
+      <div className="hidden lg:flex flex-col gap-6 items-center">
+        <img
+          src="/images/join-3.jpg"
+          alt="Foto 3"
+          className="w-72 h-44 object-cover rounded-3xl shadow-md"
+        />
+        <img
+          src="/images/join-4.jpg"
+          alt="Foto 4"
+          className="w-64 h-40 object-cover rounded-3xl shadow-md"
+        />
+      </div>
+    </div>
+
+    {/* Versi mobile / tablet: gambar di bawah teks supaya tidak sempit */}
+    <div className="mt-10 grid grid-cols-2 gap-4 lg:hidden">
+      <img
+        src="/images/join-1.jpg"
+        alt="Foto 1"
+        className="w-full h-32 object-cover rounded-2xl"
+      />
+      <img
+        src="/images/join-2.jpg"
+        alt="Foto 2"
+        className="w-full h-32 object-cover rounded-2xl"
+      />
+      <img
+        src="/images/join-3.jpg"
+        alt="Foto 3"
+        className="w-full h-32 object-cover rounded-2xl"
+      />
+      <img
+        src="/images/join-4.jpg"
+        alt="Foto 4"
+        className="w-full h-32 object-cover rounded-2xl"
+      />
+    </div>
+  </div>
+</section>
 
       <section
         className="relative w-full py-24 bg-cover bg-center text-white"

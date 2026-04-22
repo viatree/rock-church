@@ -77,67 +77,82 @@ const Services = () => {
       <section className="relative bg-[url('/images/hands2.png')] bg-cover flex items-end py-6 justify-center h-[300px] overflow-hidden">
         <div className="absolute inset-0 bg-opacity-30 z-0 " />
       </section>
-    <section className="bg-[#fff7f2] py-16 px-6 md:px-16 lg:px-24">
-  <div className="max-w-6xl mx-auto flex flex-col lg:flex-row gap-10 lg:gap-14">
-    {/* Kiri: heading + subheading */}
-    <div className="lg:w-1/3 relative">
-      {/* background daun opsional */}
-      <div className="pointer-events-none absolute -top-10 -left-10 -z-10 opacity-40">
-        {/* kalau punya ilustrasi daun sendiri, taruh di sini */}
-        {/* <Image src="/images/leaf-bg.png" alt="" width={260} height={260} /> */}
+   <section className="bg-[#fff7f2] py-20 px-6 md:px-16 lg:px-24">
+  <div className="max-w-8xl mx-auto">
+    {/* GRID UTAMA: TEXT KIRI + ROW PERTAMA KARTU */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-16">
+
+      {/* TEXT KIRI */}
+      <div className="lg:col-span-1 relative">
+        <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#b0846a] mb-3">
+          Connect With Community
+        </p>
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#3a1212] leading-tight mb-4">
+          Empowering Worship<br />Experiences
+        </h2>
+        <p className="text-sm md:text-base text-gray-700">
+          Extend Love Beyond the Sanctuary
+        </p>
       </div>
 
-      <p className="text-xs md:text-sm tracking-[0.25em] uppercase text-[#b0846a] mb-3">
-        Connect With Community
-      </p>
-      <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold text-[#3a1212] leading-tight mb-4">
-        Empowering Worship
-        <br />
-        Experiences
-      </h2>
-      <p className="text-sm md:text-base text-gray-700">
-        Extend Love Beyond the Sanctuary
-      </p>
+      {/* ROW 1: 2 KARTU */}
+      <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
+        {filteredServices.slice(0, 2).map((service, index) => (
+          <div
+            key={index}
+            className="group bg-[#f3ebe4] rounded-[26px] px-10 py-12 shadow-sm transition min-h-[260px] hover:bg-[#3a1212] hover:shadow-lg hover:-translate-y-1 flex flex-col justify-center"
+          >
+            {/* DEFAULT */}
+            <div className="group-hover:hidden">
+              {service.icon ? (
+                <Image src={service.icon} alt={service.title} width={56} height={56} className="mb-6"/>
+              ) : (
+                <div className="mb-6 w-12 h-12 rounded-full border border-[#3a1212]/30 flex items-center justify-center text-[#3a1212]">✨</div>
+              )}
+              <h3 className="text-xl font-semibold text-[#3a1212] mb-2">{service.title}</h3>
+              <p className="text-sm text-gray-700">{service.description}</p>
+            </div>
+
+            {/* HOVER */}
+            <div className="hidden group-hover:flex flex-col justify-center text-center text-white">
+              <p className="mb-4">{service.hoverText || service.description}</p>
+              <button className="text-xs tracking-[0.25em] uppercase">More Info</button>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
 
-    {/* Kanan: grid card seperti contoh (2 baris x 3 kolom) */}
-    <div className="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      {filteredServices.map((service, index) => (
+    {/* ROW 2: 3 KARTU – FULL WIDTH */}
+    <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {filteredServices.slice(2, 5).map((service, index) => (
         <div
-          key={service.id || index}
-          className="bg-[#f3ebe4] rounded-[24px] px-8 py-10 flex flex-col justify-center text-left shadow-sm hover:shadow-md hover:-translate-y-1 transition"
+          key={index}
+          className="group bg-[#f3ebe4] rounded-[26px] px-10 py-12 shadow-sm transition min-h-[260px] hover:bg-[#3a1212] hover:shadow-lg hover:-translate-y-1 flex flex-col justify-center"
         >
-          {/* Kalau punya icon di data, pakai ini */}
-          {service.icon && (
-            <div className="mb-6">
-              <Image
-                src={service.icon}
-                alt={service.title}
-                width={56}
-                height={56}
-                className="object-contain"
-              />
-            </div>
-          )}
+          {/* DEFAULT */}
+          <div className="group-hover:hidden">
+            {service.icon ? (
+              <Image src={service.icon} alt={service.title} width={56} height={56} className="mb-6"/>
+            ) : (
+              <div className="mb-6 w-12 h-12 rounded-full border border-[#3a1212]/30 flex items-center justify-center text-[#3a1212]">✨</div>
+            )}
+            <h3 className="text-xl font-semibold text-[#3a1212] mb-2">{service.title}</h3>
+            <p className="text-sm text-gray-700">{service.description}</p>
+          </div>
 
-          {/* Kalau belum punya icon, bisa pakai placeholder lingkaran */}
-          {!service.icon && (
-            <div className="mb-6 w-12 h-12 rounded-full border border-[#3a1212]/30 flex items-center justify-center text-[#3a1212] text-xl">
-              ✨
-            </div>
-          )}
-
-          <h3 className="text-lg md:text-xl font-semibold text-[#3a1212] mb-2">
-            {service.title}
-          </h3>
-          <p className="text-sm text-gray-700">
-            {service.description}
-          </p>
+          {/* HOVER */}
+          <div className="hidden group-hover:flex flex-col justify-center text-center text-white">
+            <p className="mb-4">{service.hoverText || service.description}</p>
+            <button className="text-xs tracking-[0.25em] uppercase">More Info</button>
+          </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+
     </>
   );
 };
