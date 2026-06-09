@@ -1,5 +1,5 @@
 module.exports = {
-    siteUrl: "https://www.rockministry.com", // Ganti dengan domain asli
+    siteUrl: "https://www.rockministry.com",
     generateRobotsTxt: true,
   };
   

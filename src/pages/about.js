@@ -51,7 +51,7 @@ const faqItems = [
           </h1>
 
           <p className="mt-6 text-sm md:text-lg text-white/85 max-w-3xl mx-auto leading-relaxed">
-            HeavenlyHope Church is a Christ-centered community where faith,
+            rim Church is a Christ-centered community where faith,
             love, and hope come alive. We believe in creating a warm and
             welcoming environment for individuals and families to grow spiritually.
           </p>
@@ -174,7 +174,7 @@ const faqItems = [
     {/* IMAGE 1 */}
     <div>
       <img
-        src="/images/grid1.jpg"
+        src="/images/comm1.png"
         alt="Prayer"
         className="w-full h-full object-cover"
       />
@@ -183,7 +183,7 @@ const faqItems = [
     {/* IMAGE 2 */}
     <div>
       <img
-        src="/images/grid2.jpg"
+        src="/images/comm2.png"
         alt="Prayer bench"
         className="w-full h-full object-cover"
       />
@@ -192,7 +192,7 @@ const faqItems = [
     {/* CARD 2 */}
     <div className="relative">
       <img
-        src="/images/grid3.jpg"
+        src="/images/services.png"
         alt="Bible"
         className="w-full h-full object-cover"
       />
@@ -209,7 +209,7 @@ const faqItems = [
     {/* IMAGE 3 */}
     <div>
       <img
-        src="/images/grid4.jpg"
+        src="/images/sundayschool.jpg"
         alt="Support"
         className="w-full h-full object-cover"
       />
@@ -218,7 +218,7 @@ const faqItems = [
     {/* IMAGE 4 */}
     <div>
       <img
-        src="/images/grid5.jpg"
+        src="/images/comm2.png"
         alt="Reading Bible"
         className="w-full h-full object-cover"
       />
@@ -239,7 +239,7 @@ const faqItems = [
     <div>
       <img
     
-        src="/images/grid6.jpg"
+        src="/images/comm1.png"
         alt="Prayer portrait"
         className="w-full h-full object-cover"
       />
@@ -253,7 +253,7 @@ const faqItems = [
     {/* LEFT IMAGE */}
     <div className="relative">
       <img
-        src="/images/faq2.png"
+        src="/images/church.png"
         alt="Church worship"
         className="w-full h-[650px] object-cover"
       />

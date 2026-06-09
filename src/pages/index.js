@@ -24,7 +24,7 @@ export default function Home() {
     {/* Image Side */}
     <div className="w-full md:w-1/2 relative">
       <img
-        src="/images/about-hero.jpg" // ganti dengan path gambar kamu
+        src="/images/church.png" // ganti dengan path gambar kamu
         alt="Worship in church"
         className="w-full h-[420px] md:h-[500px] object-cover rounded-[32px] shadow-lg"
       />
@@ -100,7 +100,7 @@ export default function Home() {
       {/* Card 1 */}
       <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
         <img
-          src="/images/service-1.jpg"
+          src="/images/comm1.png"
           alt="Worship"
           className="w-full h-80 object-cover"
         />
@@ -118,7 +118,7 @@ export default function Home() {
       {/* Card 2 */}
       <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
         <img
-          src="/images/service-2.jpg"
+          src="/images/comm2.png"
           alt="Bible"
           className="w-full h-80 object-cover"
         />
@@ -136,7 +136,7 @@ export default function Home() {
       {/* Card 3 */}
       <div className="bg-[#f3ece8] rounded-2xl overflow-hidden shadow-sm">
         <img
-          src="/images/service-3.jpg"
+          src="/images/services.png"
           alt="Community"
           className="w-full h-80 object-cover"
         />
@@ -159,12 +159,12 @@ export default function Home() {
       {/* KIRI – 2 gambar (hanya muncul di layar lg ke atas) */}
       <div className="hidden lg:flex flex-col gap-6 items-center">
         <img
-          src="/images/join-1.jpg" // ganti sesuai gambarmu
+          src="/images/comm1.png" // ganti sesuai gambarmu
           alt="Foto 1"
           className="w-64 h-40 object-cover rounded-3xl shadow-md"
         />
         <img
-          src="/images/join-2.jpg"
+          src="/images/comm2.png"
           alt="Foto 2"
           className="w-72 h-44 object-cover rounded-3xl shadow-md"
         />
@@ -198,12 +198,12 @@ export default function Home() {
       {/* KANAN – 2 gambar (hanya muncul di layar lg ke atas) */}
       <div className="hidden lg:flex flex-col gap-6 items-center">
         <img
-          src="/images/join-3.jpg"
+          src="/images/comm2.png"
           alt="Foto 3"
           className="w-72 h-44 object-cover rounded-3xl shadow-md"
         />
         <img
-          src="/images/join-4.jpg"
+          src="/images/comm1.png"
           alt="Foto 4"
           className="w-64 h-40 object-cover rounded-3xl shadow-md"
         />
@@ -213,22 +213,22 @@ export default function Home() {
     {/* Versi mobile / tablet: gambar di bawah teks supaya tidak sempit */}
     <div className="mt-10 grid grid-cols-2 gap-4 lg:hidden">
       <img
-        src="/images/join-1.jpg"
+        src="/images/comm1.png"
         alt="Foto 1"
         className="w-full h-32 object-cover rounded-2xl"
       />
       <img
-        src="/images/join-2.jpg"
+        src="/images/comm2.png"
         alt="Foto 2"
         className="w-full h-32 object-cover rounded-2xl"
       />
       <img
-        src="/images/join-3.jpg"
+        src="/images/services.png"
         alt="Foto 3"
         className="w-full h-32 object-cover rounded-2xl"
       />
       <img
-        src="/images/join-4.jpg"
+        src="/images/comm2.png"
         alt="Foto 4"
         className="w-full h-32 object-cover rounded-2xl"
       />
