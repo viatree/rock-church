@@ -45,7 +45,7 @@ const VideoSection = () => {
         {/* Description */}
         <div className="border-l-2 border-gray-300 pl-6 text-gray-600 text-sm md:text-base max-w-3xl mb-10">
           Explore our latest sermons, worship sessions, and church activities.
-          Be encouraged and strengthened through God's Word wherever you are.
+          Be encouraged and strengthened through God&apos;s Word wherever you are.
         </div>
 
         {/* Main Video */}

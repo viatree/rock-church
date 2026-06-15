@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://www.rockministry.com
+
+# Sitemaps
+Sitemap: https://www.rockministry.com/sitemap.xml
